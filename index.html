@@ -31,6 +31,7 @@
         <div class="nav-right">
           <ul class="nav-links">
             <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#trayectoria">Trayectoria</a></li>
             <li><a href="#actual">Proyecto actual</a></li>
             <li><a href="#tech">Tech Stack</a></li>
             <li><a href="#proyectos">Proyectos</a></li>
@@ -68,6 +69,7 @@
     <!-- MOBILE MENU -->
     <div class="mobile-menu" id="mobileMenu">
       <a href="#inicio" onclick="closeMenu()">Inicio</a>
+      <a href="#trayectoria" onclick="closeMenu()">Trayectoria</a>
       <a href="#actual" onclick="closeMenu()">Proyecto actual</a>
       <a href="#tech" onclick="closeMenu()">Tech Stack</a>
       <a href="#proyectos" onclick="closeMenu()">Proyectos</a>
@@ -95,6 +97,75 @@
 
         <div class="hero-photo fade-in" style="transition-delay: 0.15s">
           <img src="./public/img/yo.png" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <!-- TRAYECTORIA -->
+    <section id="trayectoria">
+      <div class="container">
+        <h2 class="section-title fade-in">Trayectoria</h2>
+        <p class="section-sub fade-in">
+          El camino que me trajo hasta aquí, un commit a la vez.
+        </p>
+
+        <div class="timeline-area">
+          <ol class="timeline">
+            <li class="timeline-item fade-in" data-img="./public/img/thornhill.webp">
+              <span class="timeline-year">2022</span>
+              <div class="timeline-content">
+                <h3>Primeras líneas de código</h3>
+                <p>
+                  Empiezo con HTML, CSS y JavaScript construyendo mis primeras
+                  páginas web y automatizaciones.
+                </p>
+              </div>
+            </li>
+            <li class="timeline-item fade-in" data-img="./public/img/saunuz.webp">
+              <span class="timeline-year">2023</span>
+              <div class="timeline-content">
+                <h3>Frontend moderno</h3>
+                <p>
+                  Profundizo en JavaScript, React y TypeScript, con foco en
+                  interfaces limpias y componentes reutilizables.
+                </p>
+              </div>
+            </li>
+            <li class="timeline-item fade-in" data-img="./public/img/medictaste.webp">
+              <span class="timeline-year">2024</span>
+              <div class="timeline-content">
+                <h3>Backend y bases de datos</h3>
+                <p>
+                  Python, Node.js y MySQL: APIs REST, CRUD completo y lógica de
+                  negocio para aplicaciones reales.
+                </p>
+              </div>
+            </li>
+            <li class="timeline-item fade-in" data-img="./public/img/proyectoActual.png">
+              <span class="timeline-year">2025</span>
+              <div class="timeline-content">
+                <h3>Ecosistema .NET</h3>
+                <p>
+                  C#, ASP.NET Core MVC y Docker: arquitectura en capas, pruebas
+                  unitarias con xUnit y despliegues reproducibles.
+                </p>
+              </div>
+            </li>
+            <li class="timeline-item fade-in" data-img="./public/img/frelence.png">
+              <span class="timeline-year">2026</span>
+              <div class="timeline-content">
+                <h3>Disponible para freelance</h3>
+                <p>
+                  Abierto a nuevos proyectos y oportunidades full-time.
+                  Construyamos algo grande.
+                </p>
+              </div>
+            </li>
+          </ol>
+
+          <div class="timeline-preview" aria-hidden="true">
+            <img alt="" />
+          </div>
         </div>
       </div>
     </section>
