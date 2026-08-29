@@ -331,6 +331,28 @@
         })();
       })();
 
+      // ── PROYECTO ACTUAL: PESTAÑAS ──
+      (() => {
+        const btns = document.querySelectorAll(".current-tabs .tab-btn");
+        const panels = document.querySelectorAll(".tab-panel");
+        if (!btns.length || !panels.length) return;
+
+        function activate(tabId) {
+          btns.forEach((b) => {
+            const on = b.dataset.tab === tabId;
+            b.classList.toggle("active", on);
+            b.setAttribute("aria-selected", on);
+          });
+          panels.forEach((p) =>
+            p.classList.toggle("active", p.id === "tab-" + tabId),
+          );
+        }
+
+        btns.forEach((b) =>
+          b.addEventListener("click", () => activate(b.dataset.tab)),
+        );
+      })();
+
       // ── SMOOTH SCROLL (lerp suave tipo Lenis, solo desktop) ──
       (() => {
         if (!matchMedia("(pointer: fine)").matches) return;

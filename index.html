@@ -102,33 +102,38 @@
 <!-- CURRENT PROJECT -->
     <section id="actual">
       <div class="container">
-        <h2 class="section-title fade-in">Proyecto actual</h2>
+        <p class="current-eyebrow fade-in">Proyecto actual</p>
+        <h2 class="section-title fade-in">SaludVital</h2>
         <p class="section-sub fade-in">En lo que estoy trabajando ahora mismo.</p>
 
         <div class="current-card fade-in">
-          <div class="current-thumb">
-            <img src="./public/img/proyectoActual.png" alt="SaludVital" loading="lazy" />
-          </div>
-          <div class="current-body">
-            <div class="card-tags">
-              <span class="tag green">En desarrollo</span>
-              <span class="tag blue">Código público</span>
+          <div class="current-meta">
+            <div class="status-pill">
+              <span class="pulse-dot" aria-hidden="true"></span>
+              En desarrollo
             </div>
-            <div class="card-title">SaludVital</div>
+
             <p class="card-desc">
               Aplicación web con ASP.NET Core MVC para gestionar los pacientes y
-              el historial de consultas de una clínica veterinaria. CRUD
-              completo, búsqueda, validaciones, 70 pruebas con xUnit y
-              despliegue en Docker.
+              el historial de consultas de una clínica veterinaria: CRUD
+              completo, búsqueda, validaciones y despliegue reproducible.
             </p>
-            <div class="card-techs">
-              <span class="tech-badge">C#</span>
-              <span class="tech-badge">.NET 10</span>
-              <span class="tech-badge">ASP.NET Core MVC</span>
-              <span class="tech-badge">Bootstrap</span>
-              <span class="tech-badge">xUnit</span>
-              <span class="tech-badge">Docker</span>
+
+            <div class="current-stats">
+              <div class="stat">
+                <strong>70</strong>
+                <span>pruebas xUnit</span>
+              </div>
+              <div class="stat">
+                <strong>CRUD</strong>
+                <span>completo</span>
+              </div>
+              <div class="stat">
+                <strong>Docker</strong>
+                <span>despliegue</span>
+              </div>
             </div>
+
             <a
               href="https://saludvital.clandev.com/"
               target="_blank"
@@ -140,6 +145,88 @@
                 <polyline points="12 5 19 12 12 19" />
               </svg>
             </a>
+          </div>
+
+          <div class="current-tabs">
+            <div class="tabs-bar" role="tablist" aria-label="Información del proyecto">
+              <button class="tab-btn active" type="button" role="tab" aria-selected="true" data-tab="preview">
+                Vista previa
+              </button>
+              <button class="tab-btn" type="button" role="tab" aria-selected="false" data-tab="stack">
+                Stack
+              </button>
+              <button class="tab-btn" type="button" role="tab" aria-selected="false" data-tab="roadmap">
+                Roadmap
+              </button>
+            </div>
+
+            <div class="tab-panels">
+              <div class="tab-panel active" id="tab-preview" role="tabpanel">
+                <div class="tab-preview-img">
+                  <img src="./public/img/proyectoActual.png" alt="Vista previa de SaludVital" loading="lazy" />
+                </div>
+              </div>
+
+              <div class="tab-panel" id="tab-stack" role="tabpanel">
+                <div class="card-techs">
+                  <span class="tech-badge">C#</span>
+                  <span class="tech-badge">.NET 10</span>
+                  <span class="tech-badge">ASP.NET Core MVC</span>
+                  <span class="tech-badge">Bootstrap</span>
+                  <span class="tech-badge">xUnit</span>
+                  <span class="tech-badge">Docker</span>
+                </div>
+                <p class="tab-text">
+                  Arquitectura en capas (Controllers, Services, Data), validaciones
+                  server-side, búsqueda y 70 pruebas unitarias con xUnit. Se
+                  despliega en contenedores Docker desde Azure.
+                </p>
+              </div>
+
+              <div class="tab-panel" id="tab-roadmap" role="tabpanel">
+                <ul class="roadmap">
+                  <li class="done">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    CRUD de pacientes y paginación
+                  </li>
+                  <li class="done">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    Historial de consultas
+                  </li>
+                  <li class="done">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    Búsqueda y validaciones
+                  </li>
+                  <li class="done">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    70 pruebas con xUnit
+                    <span class="rm-state done">Hecho</span>
+                  </li>
+                  <li class="pending">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <circle cx="12" cy="12" r="9" />
+                    </svg>
+                    Autenticación y roles
+                    <span class="rm-state">En curso</span>
+                  </li>
+                  <li class="pending">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <circle cx="12" cy="12" r="9" />
+                    </svg>
+                    Despliegue CI/CD en Docker
+                    <span class="rm-state">Próximo</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
