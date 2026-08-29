@@ -45,32 +45,8 @@
       );
 
       document
-        .querySelectorAll(".fade-in:not(.timeline-item)")
+        .querySelectorAll(".fade-in")
         .forEach((el) => observer.observe(el));
-
-      // ── TIMELINE: aparición secuencial cada 2s ──
-      (() => {
-        const items = document.querySelectorAll(".timeline-item.fade-in");
-        const list = document.querySelector(".timeline");
-        if (!items.length || !list) return;
-
-        let started = false;
-        const seqObserver = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((e) => {
-              if (!e.isIntersecting || started) return;
-              started = true;
-              seqObserver.unobserve(e.target);
-              items.forEach((item, i) => {
-                setTimeout(() => item.classList.add("visible"), i * 2000);
-              });
-            });
-          },
-          { threshold: 0.2 },
-        );
-
-        seqObserver.observe(list);
-      })();
 
       // ── HIDE/SHOW NAV ON SCROLL ──
       const nav = document.getElementById("mainNav");
@@ -239,7 +215,19 @@
         tip.className = "tech-tip";
         document.body.appendChild(tip);
 
+        const cursorDot = document.querySelector(".cursor-dot");
+        const cursorRing = document.querySelector(".cursor-ring");
+
         let activeImg = null;
+
+        function blurCursor() {
+          if (cursorDot) cursorDot.style.filter = "blur(8px)";
+          if (cursorRing) cursorRing.style.filter = "blur(10px)";
+        }
+        function unblurCursor() {
+          if (cursorDot) cursorDot.style.filter = "";
+          if (cursorRing) cursorRing.style.filter = "";
+        }
 
         function position() {
           if (!activeImg) return;
@@ -263,11 +251,13 @@
           tip.querySelector("span").textContent = img.dataset.info;
           position();
           tip.classList.add("show");
+          blurCursor();
         }
 
         function hide() {
           activeImg = null;
           tip.classList.remove("show");
+          unblurCursor();
         }
 
         icons.forEach((img) => {
@@ -339,78 +329,6 @@
             "translate(" + rx + "px," + ry + "px) translate(-50%,-50%)";
           requestAnimationFrame(loop);
         })();
-      })();
-
-      // ── TIMELINE: PREVIEW DE IMAGEN AL HOVER ──
-      (() => {
-        const items = document.querySelectorAll(".timeline-item[data-img]");
-        const preview = document.querySelector(".timeline-preview");
-        const list = document.querySelector(".timeline");
-        if (!items.length || !preview || !list) return;
-
-        const img = preview.querySelector("img");
-        const area = preview.parentElement;
-        const cursorDot = document.querySelector(".cursor-dot");
-        const cursorRing = document.querySelector(".cursor-ring");
-        let currentSrc = "";
-
-        items.forEach((item) => {
-          const preload = new Image();
-          preload.src = item.dataset.img;
-        });
-
-        function hideCursor() {
-          if (cursorDot) cursorDot.style.filter = "blur(8px)";
-          if (cursorRing) cursorRing.style.filter = "blur(10px)";
-        }
-        function showCursor() {
-          if (cursorDot) cursorDot.style.filter = "";
-          if (cursorRing) cursorRing.style.filter = "";
-        }
-
-        function moveTo(item) {
-          const y =
-            item.getBoundingClientRect().top -
-            area.getBoundingClientRect().top;
-          const maxTop = Math.max(
-            0,
-            list.offsetHeight - preview.offsetHeight,
-          );
-          preview.style.marginTop =
-            Math.max(0, Math.min(y, maxTop)) + "px";
-        }
-
-        items.forEach((item) => {
-          item.addEventListener("mouseenter", () => {
-            if (item.dataset.img !== currentSrc) {
-              currentSrc = item.dataset.img;
-              img.src = item.dataset.img;
-            }
-            moveTo(item);
-            hideCursor();
-            // Reiniciar siempre la animación, incluso moviéndose rápido
-            preview.classList.remove("show");
-            preview.style.transition = "none";
-            void preview.offsetWidth;
-            preview.style.transition = "";
-            requestAnimationFrame(() => {
-              requestAnimationFrame(() => {
-                preview.classList.add("show");
-              });
-            });
-          });
-        });
-
-        list.addEventListener("mouseleave", () => {
-          preview.classList.remove("show");
-          showCursor();
-        });
-
-        addEventListener("resize", () => {
-          if (!preview.classList.contains("show") || !currentSrc) return;
-          const active = [...items].find((i) => i.dataset.img === currentSrc);
-          if (active) moveTo(active);
-        });
       })();
 
       // ── SMOOTH SCROLL (lerp suave tipo Lenis, solo desktop) ──
