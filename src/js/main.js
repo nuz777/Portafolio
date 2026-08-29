@@ -88,6 +88,31 @@
       // Set initial state
       nav.classList.add("nav-visible");
 
+      // ── ESTADO DEL CURSOR (puntero real + cursor visible, compartido) ──
+      const pointerState = {
+        x: innerWidth / 2,
+        y: innerHeight / 2,
+        active: false,
+      };
+      const cursorLead = {
+        x: innerWidth / 2,
+        y: innerHeight / 2,
+        active: false,
+      };
+
+      addEventListener(
+        "mousemove",
+        (e) => {
+          pointerState.x = e.clientX;
+          pointerState.y = e.clientY;
+          pointerState.active = true;
+        },
+        { passive: true },
+      );
+      document.addEventListener("mouseleave", () => {
+        pointerState.active = false;
+      });
+
       // ── CONSTELLATION BACKGROUND ──
       (() => {
         if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -98,11 +123,47 @@
         let w = 0,
           h = 0;
         let particles = [];
-        const mouse = { x: -9999, y: -9999 };
         let running = true;
+
+        const LINK = 120;
+        const LINK2 = LINK * LINK;
+        const MOUSE_R = 170;
+        const MOUSE_R2 = MOUSE_R * MOUSE_R;
+        const CELL = LINK / 2;
+        const RANGE = 2;
+        const BUCKETS = 6;
+        const grid = new Map();
+        const lineSegs = Array.from({ length: BUCKETS }, () => []);
+        const mouseSegs = Array.from({ length: BUCKETS }, () => []);
+
+        let dotFill = "";
+        let lineColors = [];
+        let mouseColors = [];
 
         const isDark = () =>
           document.documentElement.getAttribute("data-theme") === "dark";
+
+        function refreshPalette() {
+          const dark = isDark();
+          const dotColor = dark ? "96,165,250" : "37,99,235";
+          const lineColor = dark ? "59,130,246" : "37,99,235";
+          dotFill = "rgba(" + dotColor + "," + (dark ? "0.7" : "0.5") + ")";
+          lineColors = [];
+          mouseColors = [];
+          for (let i = 0; i < BUCKETS; i++) {
+            lineColors.push(
+              "rgba(" + lineColor + "," + (0.22 * (i / (BUCKETS - 1))).toFixed(2) + ")",
+            );
+            mouseColors.push(
+              "rgba(" + lineColor + "," + (0.35 * (i / (BUCKETS - 1))).toFixed(2) + ")",
+            );
+          }
+        }
+        refreshPalette();
+        new MutationObserver(refreshPalette).observe(
+          document.documentElement,
+          { attributes: true, attributeFilter: ["data-theme"] },
+        );
 
         function resize() {
           const dpr = Math.min(devicePixelRatio || 1, 2);
@@ -115,8 +176,9 @@
         }
 
         function seed() {
-          const count = Math.min(110, Math.floor((w * h) / 16000));
-          particles = Array.from({ length: count }, () => ({
+          const count = Math.min(90, Math.floor((w * h) / 18000));
+          particles = Array.from({ length: count }, (_, i) => ({
+            i,
             x: Math.random() * w,
             y: Math.random() * h,
             vx: (Math.random() - 0.5) * 0.5,
@@ -125,14 +187,28 @@
           }));
         }
 
+        function buildGrid() {
+          grid.clear();
+          for (const p of particles) {
+            const cx = (p.x / CELL) | 0;
+            const cy = (p.y / CELL) | 0;
+            const key = cx + ":" + cy;
+            let cell = grid.get(key);
+            if (!cell) {
+              cell = [];
+              grid.set(key, cell);
+            }
+            cell.push(p);
+          }
+        }
+
         function step() {
           if (!running) return;
-          ctx.clearRect(0, 0, w, h);
 
-          const dark = isDark();
-          const dotColor = dark ? "96,165,250" : "37,99,235";
-          const lineColor = dark ? "59,130,246" : "37,99,235";
-          const LINK = 120;
+          for (const arr of lineSegs) arr.length = 0;
+          for (const arr of mouseSegs) arr.length = 0;
+
+          ctx.clearRect(0, 0, w, h);
 
           for (const p of particles) {
             p.x += p.vx;
@@ -143,58 +219,100 @@
             else if (p.y > h + 10) p.y = -10;
           }
 
+          buildGrid();
+
+          // Punto de anclaje: el cursor VISIBLE (con lerp), no el puntero crudo
+          const useLead = pointerState.active && cursorLead.active;
+          const ex = pointerState.active
+            ? useLead
+              ? cursorLead.x
+              : pointerState.x
+            : -9999;
+          const ey = pointerState.active
+            ? useLead
+              ? cursorLead.y
+              : pointerState.y
+            : -9999;
+
+          // Recorrer vecinos por grilla (evita el O(n²))
           for (let i = 0; i < particles.length; i++) {
             const a = particles[i];
+            const ax = a.x;
+            const ay = a.y;
+            const acx = (ax / CELL) | 0;
+            const acy = (ay / CELL) | 0;
 
-            for (let j = i + 1; j < particles.length; j++) {
-              const b = particles[j];
-              const dx = a.x - b.x;
-              const dy = a.y - b.y;
-              const d2 = dx * dx + dy * dy;
-              if (d2 < LINK * LINK) {
-                const t = 1 - Math.sqrt(d2) / LINK;
-                ctx.strokeStyle =
-                  "rgba(" + lineColor + "," + (t * 0.22).toFixed(3) + ")";
-                ctx.lineWidth = 1;
-                ctx.beginPath();
-                ctx.moveTo(a.x, a.y);
-                ctx.lineTo(b.x, b.y);
-                ctx.stroke();
+            for (let ox = -RANGE; ox <= RANGE; ox++) {
+              for (let oy = -RANGE; oy <= RANGE; oy++) {
+                const cell = grid.get(acx + ox + ":" + (acy + oy));
+                if (!cell) continue;
+                for (let k = 0; k < cell.length; k++) {
+                  const b = cell[k];
+                  if (b.i <= a.i) continue;
+                  const dx = ax - b.x;
+                  const dy = ay - b.y;
+                  const d2 = dx * dx + dy * dy;
+                  if (d2 < LINK2) {
+                    const t = 1 - Math.sqrt(d2) / LINK;
+                    const idx = ((t * (BUCKETS - 1)) | 0);
+                    const arr = lineSegs[idx < BUCKETS ? idx : BUCKETS - 1];
+                    arr.push(ax, ay, b.x, b.y);
+                  }
+                }
               }
             }
 
-            const mdx = a.x - mouse.x;
-            const mdy = a.y - mouse.y;
-            const md2 = mdx * mdx + mdy * mdy;
-            const M = 170;
-            if (md2 < M * M) {
-              const t = 1 - Math.sqrt(md2) / M;
-              ctx.strokeStyle =
-                "rgba(" + lineColor + "," + (t * 0.35).toFixed(3) + ")";
+            // Conexión con el cursor
+            if (pointerState.active) {
+              const mdx = ax - ex;
+              const mdy = ay - ey;
+              const md2 = mdx * mdx + mdy * mdy;
+              if (md2 < MOUSE_R2) {
+                const t = 1 - Math.sqrt(md2) / MOUSE_R;
+                const idx = t * (BUCKETS - 1);
+                const arr2 = mouseSegs[idx < BUCKETS ? idx | 0 : BUCKETS - 1];
+                arr2.push(ax, ay, ex, ey);
+              }
+            }
+          }
+
+          // Trazar líneas agrupadas por color (una stroke por bucket)
+          ctx.lineWidth = 1;
+          for (let s = 0; s < BUCKETS; s++) {
+            const arrP = lineSegs[s];
+            if (arrP.length) {
+              ctx.strokeStyle = lineColors[s];
               ctx.beginPath();
-              ctx.moveTo(a.x, a.y);
-              ctx.lineTo(mouse.x, mouse.y);
+              for (let k = 0; k < arrP.length; k += 4) {
+                ctx.moveTo(arrP[k], arrP[k + 1]);
+                ctx.lineTo(arrP[k + 2], arrP[k + 3]);
+              }
               ctx.stroke();
             }
-
-            ctx.fillStyle =
-              "rgba(" + dotColor + "," + (dark ? "0.7" : "0.5") + ")";
-            ctx.beginPath();
-            ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2);
-            ctx.fill();
+            const arrM = mouseSegs[s];
+            if (arrM.length) {
+              ctx.strokeStyle = mouseColors[s];
+              ctx.beginPath();
+              for (let k = 0; k < arrM.length; k += 4) {
+                ctx.moveTo(arrM[k], arrM[k + 1]);
+                ctx.lineTo(arrM[k + 2], arrM[k + 3]);
+              }
+              ctx.stroke();
+            }
           }
+
+          // Puntos en un solo path
+          ctx.fillStyle = dotFill;
+          ctx.beginPath();
+          for (const p of particles) {
+            ctx.moveTo(p.x + p.r, p.y);
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          }
+          ctx.fill();
 
           requestAnimationFrame(step);
         }
 
-        addEventListener("mousemove", (e) => {
-          mouse.x = e.clientX;
-          mouse.y = e.clientY;
-        });
-        document.addEventListener("mouseleave", () => {
-          mouse.x = -9999;
-          mouse.y = -9999;
-        });
         addEventListener("resize", resize);
         document.addEventListener("visibilitychange", () => {
           const wasRunning = running;
@@ -281,27 +399,27 @@
 
         document.body.classList.add("has-custom-cursor");
 
-        let mx = innerWidth / 2,
-          my = innerHeight / 2;
-        let dx = mx,
-          dy = my,
-          rx = mx,
-          ry = my;
+        let dx = pointerState.x,
+          dy = pointerState.y,
+          rx = pointerState.x,
+          ry = pointerState.y;
         let seen = false;
 
         addEventListener("mousemove", (e) => {
-          mx = e.clientX;
-          my = e.clientY;
           if (!seen) {
             seen = true;
-            dx = rx = mx;
-            dy = ry = my;
+            dx = rx = e.clientX;
+            dy = ry = e.clientY;
+            cursorLead.x = dx;
+            cursorLead.y = dy;
+            cursorLead.active = true;
             dot.style.opacity = "1";
             ring.style.opacity = "1";
           }
         });
 
         document.addEventListener("mouseleave", () => {
+          cursorLead.active = false;
           dot.style.opacity = "0";
           ring.style.opacity = "0";
           seen = false;
@@ -318,15 +436,32 @@
         addEventListener("mousedown", () => ring.classList.add("is-down"));
         addEventListener("mouseup", () => ring.classList.remove("is-down"));
 
+        // Actualizar la posición visible que sigue la constelación y el DOM
         (function loop() {
-          dx += (mx - dx) * 0.4;
-          dy += (my - dy) * 0.4;
-          rx += (mx - rx) * 0.16;
-          ry += (my - ry) * 0.16;
-          dot.style.transform =
-            "translate(" + dx + "px," + dy + "px) translate(-50%,-50%)";
-          ring.style.transform =
-            "translate(" + rx + "px," + ry + "px) translate(-50%,-50%)";
+          dx += (pointerState.x - dx) * 0.4;
+          dy += (pointerState.y - dy) * 0.4;
+          rx += (pointerState.x - rx) * 0.16;
+          ry += (pointerState.y - ry) * 0.16;
+
+          cursorLead.x = dx;
+          cursorLead.y = dy;
+
+          const qdx = Math.round(dx * 10) / 10;
+          const qdy = Math.round(dy * 10) / 10;
+          const qrx = Math.round(rx * 10) / 10;
+          const qry = Math.round(ry * 10) / 10;
+
+          const dt = "translate(" + qdx + "px," + qdy + "px) translate(-50%,-50%)";
+          const rt = "translate(" + qrx + "px," + qry + "px) translate(-50%,-50%)";
+          if (dot._t !== dt) {
+            dot.style.transform = dt;
+            dot._t = dt;
+          }
+          if (ring._t !== rt) {
+            ring.style.transform = rt;
+            ring._t = rt;
+          }
+
           requestAnimationFrame(loop);
         })();
       })();
