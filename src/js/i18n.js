@@ -1,6 +1,6 @@
 (function () {
   const es = {
-    "ui.title": "Ivan David Mejía Méndez — Desarrollo Web",
+    "ui.title": "Ivan Mejía (Nuz777) — Desarrollo Web Full Stack",
     "ui.lang": "Cambiar idioma",
     "ui.theme": "Cambiar tema",
     "ui.menu": "Abrir menú",
@@ -24,7 +24,7 @@
     "about.eyebrow": "Sobre mí",
     "about.title": "Experiencia con foco en calidad",
     "about.p1":
-      "Soy desarrollador de software con experiencia construyendo aplicaciones web completas. Trabajo con una base sólida de .NET/C#, JavaScript y Python, y aplico buenas prácticas en cada etapa: diseño, desarrollo, pruebas y despliegue.",
+      "Soy Iván Mejía (Nuz777), desarrollador de software con experiencia construyendo aplicaciones web completas. Trabajo con una base sólida de .NET/C#, JavaScript y Python, y aplico buenas prácticas en cada etapa: diseño, desarrollo, pruebas y despliegue.",
     "about.p2":
       "Me centro en entregar productos mantenibles y listos para producción, con pruebas automatizadas, contenedores Docker y despliegues en la nube que se pueden reproducir y escalar.",
     "about.l1": "Aplicaciones web full stack con .NET, React y Node.js",
@@ -99,7 +99,7 @@
     "contact.title": "¿Tienes un proyecto en mente?",
     "contact.sub": "Hablemos de tus objetivos. Respondo en menos de 24 horas y con propuestas claras y sin compromiso.",
     "contact.write": "Escríbeme",
-    "contact.gh": "Ver GitHub",
+    "contact.gh": "Ver GitHub - Nuz777",
     "footer.tagline": "Desarrollo soluciones web modernas con código de calidad, foco en el usuario y entrega real.",
     "footer.nav": "Navegación",
     "footer.services": "Servicios",
@@ -138,7 +138,7 @@
   };
 
   const en = {
-    "ui.title": "Ivan David Mejía Méndez — Web Development",
+    "ui.title": "Ivan Mejia (Nuz777) — Web Development",
     "ui.lang": "Change language",
     "ui.theme": "Toggle theme",
     "ui.menu": "Open menu",
@@ -162,7 +162,7 @@
     "about.eyebrow": "About me",
     "about.title": "Experience focused on quality",
     "about.p1":
-      "I am a software developer with experience building complete web applications. I work with a solid foundation in .NET/C#, JavaScript and Python, and I apply good practices at every stage: design, development, testing and deployment.",
+      "I am Iván Mejía (Nuz777), a software developer with experience building complete web applications. I work with a solid foundation in .NET/C#, JavaScript and Python, and I apply good practices at every stage: design, development, testing and deployment.",
     "about.p2":
       "I focus on delivering maintainable, production-ready products with automated testing, Docker containers and cloud deployments that are reproducible and scalable.",
     "about.l1": "Full stack web applications with .NET, React and Node.js",
@@ -236,7 +236,7 @@
     "contact.title": "Have a project in mind?",
     "contact.sub": "Let's talk about your goals. I respond within 24 hours with clear, no-obligation proposals.",
     "contact.write": "Write to me",
-    "contact.gh": "View GitHub",
+    "contact.gh": "View GitHub - Nuz777",
     "footer.tagline": "I develop modern web solutions with quality code, user focus and real delivery.",
     "footer.nav": "Navigation",
     "footer.services": "Services",
