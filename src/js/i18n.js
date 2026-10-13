@@ -14,7 +14,7 @@
     "hero.eyebrow": "Desarrollador Full Stack",
     "hero.role": "Soluciones web sólidas, de la idea al despliegue.",
     "hero.sub":
-      "Construyo aplicaciones web modernas y confiables: arquitectura limpia, pruebas automatizadas y despliegues en la nube.",
+      "Construyo aplicaciones web modernas y confiables con arquitectura limpia y pruebas automatizadas.",
     "hero.cta1": "Contáctame",
     "hero.cta2": "Ver proyectos",
     "hero.availPre": "Disponible para",
@@ -24,24 +24,28 @@
     "about.eyebrow": "Sobre mí",
     "about.title": "Experiencia con foco en calidad",
     "about.p1":
-      "Soy Iván Mejía (Nuz777), desarrollador de software con experiencia construyendo aplicaciones web completas. Trabajo con una base sólida de .NET/C#, JavaScript y Python, y aplico buenas prácticas en cada etapa: diseño, desarrollo, pruebas y despliegue.",
+      "Soy Iván Mejía (Nuz777), desarrollador full stack. Trabajo con .NET/C#, ASP.NET, JavaScript, TypeScript, React, Next.js, Python, PHP y Docker, aplicando buenas prácticas en cada etapa: diseño, desarrollo, pruebas y empaquetado con Docker.",
     "about.p2":
-      "Me centro en entregar productos mantenibles y listos para producción, con pruebas automatizadas, contenedores Docker y despliegues en la nube que se pueden reproducir y escalar.",
-    "about.l1": "Aplicaciones web full stack con .NET, React y Node.js",
+      "Me centro en entregar productos mantenibles y listos para producción con pruebas automatizadas y contenedores Docker para empaquetado consistente.",
+"about.l1":
+      "Aplicaciones web full stack con .NET, ASP.NET, React y Node.js",
     "about.l2": "APIs REST y bases de datos SQL y NoSQL",
-    "about.l3": "Pruebas automatizadas y CI/CD con Docker",
-    "about.l4": "Despliegue en Azure, VPS y entornos cloud",
+"about.l3":
+      "Pruebas automatizadas con Docker",
+"about.l4":
+      "Uso Docker para empaquetar mis proyectos",
     "about.profile": "Perfil profesional",
     "about.focus": "Enfoque",
     "about.focusVal": "Web Full Stack",
-    "about.mainstack": "Stack principal",
+"about.mainstack":
+      ".NET / C# / ASP.NET · React · Python",
     "about.avail": "Disponibilidad",
     "about.freelance": "Proyectos freelance",
     "about.email": "Email",
     "stats.s1": "Años de experiencia",
     "stats.s2": "Proyectos entregados",
     "stats.s3": "Tecnologías en producción",
-    "stats.s4": "Pruebas automatizadas",
+    "stats.s4": "Tecnologías Dominadas",
     "tech.eyebrow": "Tech Stack",
     "tech.title": "Mi caja de herramientas",
     "tech.sub": "Tecnologías que uso para construir soluciones reales y listas para producción.",
@@ -86,7 +90,8 @@
     "s.t1": "Desarrollo Frontend",
     "s.d1": "Interfaces modernas con React, Vue o Vanilla JS. Rendimiento, accesibilidad y código limpio y escalable.",
     "s.t2": "Desarrollo Backend",
-    "s.d2": "APIs REST y lógica de negocio robusta con .NET, Node.js o Python. Bases de datos SQL/NoSQL y autenticación segura.",
+"s.d2":
+      "APIs REST y lógica de negocio robusta con .NET, ASP.NET, Node.js o Python. Bases de datos SQL/NoSQL y autenticación segura.",
     "s.t3": "Aplicaciones Full Stack",
     "s.d3": "Del diseño al despliegue: integro frontend, backend y DevOps para entregar productos listos para producción.",
     "s.t4": "Consultoría Técnica",
@@ -94,7 +99,8 @@
     "s.t5": "Integraciones y APIs",
     "s.d5": "Conexión de servicios externos, pasarelas de pago, OAuth y webhooks para automatizar flujos de trabajo.",
     "s.t6": "Despliegue y DevOps",
-    "s.d6": "CI/CD, contenedores Docker y despliegue en VPS o cloud. Tu proyecto en producción de forma rápida y segura.",
+"s.d6":
+      "Contenedores Docker y empaquetado para producción rápida y segura.",
     "contact.eyebrow": "Contacto",
     "contact.title": "¿Tienes un proyecto en mente?",
     "contact.sub": "Hablemos de tus objetivos. Respondo en menos de 24 horas y con propuestas claras y sin compromiso.",
@@ -152,7 +158,7 @@
     "hero.eyebrow": "Full Stack Developer",
     "hero.role": "Solid web solutions, from idea to deployment.",
     "hero.sub":
-      "I build modern, reliable web applications: clean architecture, automated testing and deployments.",
+      "I build modern, reliable web applications with clean architecture and automated testing.",
     "hero.cta1": "Contact me",
     "hero.cta2": "View projects",
     "hero.availPre": "Available for",
@@ -162,24 +168,28 @@
     "about.eyebrow": "About me",
     "about.title": "Experience focused on quality",
     "about.p1":
-      "I am Iván Mejía (Nuz777), a software developer with experience building complete web applications. I work with a solid foundation in .NET/C#, JavaScript and Python, and I apply good practices at every stage: design, development, testing and deployment.",
+      "I am Iván Mejía (Nuz777), a full stack developer. I work with .NET/C#, ASP.NET, JavaScript, TypeScript, React, Next.js, Python, PHP and Docker, applying good practices at every stage: design, development, testing and Docker packaging.",
     "about.p2":
-      "I focus on delivering maintainable, production-ready products with automated testing, Docker containers and cloud deployments that are reproducible and scalable.",
-    "about.l1": "Full stack web applications with .NET, React and Node.js",
+      "I focus on delivering maintainable, production-ready products with automated testing and Docker containers for consistent packaging.",
+"about.l1":
+      "Full stack web applications with .NET, ASP.NET, React and Node.js",
     "about.l2": "REST APIs and SQL and NoSQL databases",
-    "about.l3": "Automated testing and CI/CD with Docker",
-    "about.l4": "Deployment on Azure, VPS and cloud environments",
+"about.l3":
+      "Automated testing with Docker",
+"about.l4":
+      "I use Docker to package my projects",
     "about.profile": "Professional profile",
     "about.focus": "Focus",
     "about.focusVal": "Web Full Stack",
-    "about.mainstack": "Main stack",
+"about.mainstack":
+      ".NET / C# / ASP.NET · React · Python",
     "about.avail": "Availability",
     "about.freelance": "Freelance projects",
     "about.email": "Email",
     "stats.s1": "Years of experience",
     "stats.s2": "Projects delivered",
     "stats.s3": "Technologies in production",
-    "stats.s4": "Automated tests",
+    "stats.s4": "Technologies Dominated",
     "tech.eyebrow": "Tech Stack",
     "tech.title": "My toolbox",
     "tech.sub": "Technologies I use to build real, production-ready solutions.",
@@ -223,7 +233,8 @@
     "s.t1": "Frontend Development",
     "s.d1": "Modern interfaces with React, Vue or Vanilla JS. Performance, accessibility and clean, scalable code.",
     "s.t2": "Backend Development",
-    "s.d2": "REST APIs and robust business logic with .NET, Node.js or Python. SQL/NoSQL databases and secure authentication.",
+"s.d2":
+      "REST APIs and robust business logic with .NET, ASP.NET, Node.js or Python. SQL/NoSQL databases and secure authentication.",
     "s.t3": "Full Stack Applications",
     "s.d3": "From design to deployment: I integrate frontend, backend and DevOps to deliver production-ready products.",
     "s.t4": "Technical Consulting",
@@ -231,7 +242,8 @@
     "s.t5": "Integrations & APIs",
     "s.d5": "Connection of external services, payment gateways, OAuth and webhooks to automate workflows.",
     "s.t6": "Deployment & DevOps",
-    "s.d6": "CI/CD, Docker containers and VPS or cloud deployment. Your project in production fast and securely.",
+"s.d6":
+      "Docker containers and packaging for fast and secure deployment.",
     "contact.eyebrow": "Contact",
     "contact.title": "Have a project in mind?",
     "contact.sub": "Let's talk about your goals. I respond within 24 hours with clear, no-obligation proposals.",
