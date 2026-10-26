@@ -27,7 +27,7 @@
       rel="stylesheet"
     />
     <link rel="icon" type="image/svg+xml" href="./public/favicon.svg" />
-    <link rel="stylesheet" href="./src/styles/globals.css?v=3" />
+    <link rel="stylesheet" href="./src/styles/globals.css?v=6" />
   </head>
   <body>
     <nav id="mainNav">
@@ -535,28 +535,92 @@
       </div>
     </section>
 
-    <section id="actual" class="section-alt">
-      <div class="container">
-        <div class="section-head fade-in">
-          <p class="eyebrow" data-i18n="actual.eyebrow">Proyecto actual</p>
-          <h2 class="section-title">SaludVital</h2>
-          <p class="section-sub" data-i18n="actual.sub">Sistema web para la gestión clínica veterinaria.</p>
-        </div>
+    <section id="actual" class="actual-hero">
+      <div class="actual-hero-bg">
+        <img
+          src="./public/img/proyectoActual.png"
+          alt="Vista previa de FirmezaERP"
+          data-i18n-attr="alt:actual.frameAlt"
+          loading="lazy"
+        />
+      </div>
+      <div class="actual-hero-overlay" aria-hidden="true"></div>
 
-        <div class="actual-card fade-in">
-          <div class="actual-top">
+      <div class="container actual-hero-inner">
+        <div class="actual-hero-content">
+          <div class="actual-hero-top fade-in" style="--delay: 0.06s">
+            <p class="eyebrow" data-i18n="actual.eyebrow">Proyecto actual</p>
             <div class="status-pill">
               <span class="pulse-dot" aria-hidden="true"></span>
               <span data-i18n="actual.status">En desarrollo</span>
             </div>
+          </div>
+
+          <h2 class="actual-hero-title fade-in" style="--delay: 0.16s">FirmezaERP</h2>
+          <p class="actual-hero-sub fade-in" style="--delay: 0.24s" data-i18n="actual.sub">
+            Planificación de recursos empresariales (ERP), control de inventario, facturación e-commerce para construcción y ferretería.
+          </p>
+
+          <p class="actual-desc fade-in" style="--delay: 0.32s" data-i18n="actual.desc">
+            Plataforma integral para materiales de construcción y suministros de
+            ferretería que centraliza el control de inventario, facturación con
+            cálculo automático de impuestos (IVA) y escaparate comercial para
+            clientes con trazabilidad completa.
+          </p>
+
+          <ul class="actual-features fade-in" style="--delay: 0.4s">
+            <li>
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" /></svg>
+              <span data-i18n="actual.f1">ERP integral y control estricto de inventario</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" /></svg>
+              <span data-i18n="actual.f2">Facturación con cálculo automático de IVA</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" /></svg>
+              <span data-i18n="actual.f3">Catálogo público y tienda para clientes</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" /></svg>
+              <span data-i18n="actual.f4">Gestión de clientes y despachos trazables</span>
+            </li>
+          </ul>
+
+          <div class="actual-stack fade-in" style="--delay: 0.48s">
+            <span class="tech-badge">C#</span>
+            <span class="tech-badge">.NET</span>
+            <span class="tech-badge">ASP.NET Core</span>
+            <span class="tech-badge">PostgreSQL</span>
+            <span class="tech-badge">xUnit</span>
+            <span class="tech-badge">Docker</span>
+          </div>
+
+          <div class="actual-hero-footer fade-in" style="--delay: 0.56s">
+            <div class="actual-actions">
+              <a
+                href="https://firmeza.clandev.com"
+                target="_blank"
+                class="btn btn-primary actual-cta"
+                data-i18n-attr="aria-label:actual.frameAria"
+                aria-label="Abrir FirmezaERP"
+              >
+                <span data-i18n="view">Ver proyecto</span>
+                <svg viewBox="0 0 24 24">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </a>
+            </div>
+
             <div class="actual-metrics">
               <div>
-                <strong data-count="70">70</strong>
-                <span data-i18n="actual.m1">pruebas xUnit</span>
+                <strong>ERP</strong>
+                <span data-i18n="actual.m1">gestión integral</span>
               </div>
               <div>
-                <strong>CRUD</strong>
-                <span data-i18n="actual.m2">completo</span>
+                <strong>IVA 19%</strong>
+                <span data-i18n="actual.m2">facturación</span>
               </div>
               <div>
                 <strong>Docker</strong>
@@ -565,71 +629,9 @@
             </div>
           </div>
 
-          <div class="actual-grid">
-            <div class="actual-media">
-              <a href="https://saludvital.clandev.com/" target="_blank" class="actual-frame-link" data-i18n-attr="aria-label:actual.frameAria" aria-label="Abrir SaludVital">
-                <div class="actual-frame">
-                  <img src="./public/img/proyectoActual.png" alt="Vista previa de SaludVital" data-i18n-attr="alt:actual.frameAlt" loading="lazy" />
-                  <div class="actual-frame-overlay">
-                    <span class="frame-chip">
-                      <span data-i18n="view">Ver proyecto</span>
-                      <svg viewBox="0 0 24 24">
-                        <line x1="5" y1="12" x2="19" y2="12" />
-                        <polyline points="12 5 19 12 12 19" />
-                      </svg>
-                    </span>
-                  </div>
-                </div>
-              </a>
-              <div class="actual-stack">
-                <span class="tech-badge">C#</span>
-                <span class="tech-badge">.NET 10</span>
-                <span class="tech-badge">ASP.NET Core MVC</span>
-                <span class="tech-badge">Bootstrap</span>
-                <span class="tech-badge">xUnit</span>
-                <span class="tech-badge">Docker</span>
-              </div>
-            </div>
-
-            <div class="actual-info">
-              <p class="actual-desc" data-i18n="actual.desc">
-                Aplicación web con ASP.NET Core MVC para gestionar pacientes y el
-                historial de consultas de una clínica veterinaria. Arquitectura en
-                capas, validaciones server-side y despliegue reproducible en
-                contenedores Docker desde Azure.
-              </p>
-              <ul class="actual-features">
-                <li>
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" /></svg>
-                  <span data-i18n="actual.f1">CRUD de pacientes con paginación</span>
-                </li>
-                <li>
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" /></svg>
-                  <span data-i18n="actual.f2">Historial de consultas</span>
-                </li>
-                <li>
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" /></svg>
-                  <span data-i18n="actual.f3">Búsqueda y validaciones</span>
-                </li>
-                <li>
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" /></svg>
-                  <span data-i18n="actual.f4">70 pruebas unitarias con xUnit</span>
-                </li>
-              </ul>
-              <div class="actual-actions">
-                <a href="https://saludvital.clandev.com/" target="_blank" class="btn btn-primary">
-                  <span data-i18n="view">Ver proyecto</span>
-                  <svg viewBox="0 0 24 24">
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                    <polyline points="12 5 19 12 12 19" />
-                  </svg>
-                </a>
-              </div>
-              <p class="actual-next" data-i18n="actual.next">
-                En curso: autenticación y roles · Próximo: CI/CD en Docker.
-              </p>
-            </div>
-          </div>
+          <p class="actual-next fade-in" style="--delay: 0.64s" data-i18n="actual.next">
+            En curso: módulo comercial y facturación · Despliegue en contenedores Docker.
+          </p>
         </div>
       </div>
     </section>
