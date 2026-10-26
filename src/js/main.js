@@ -102,7 +102,7 @@ const observer = new IntersectionObserver(
   { threshold: 0.12 },
 );
 
-document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
+document.querySelectorAll(".fade-in, .actual-hero").forEach((el) => observer.observe(el));
 
 const sectionIds = ["inicio", "sobre-mi", "proyectos", "servicios", "contacto"];
 const navLinks = document.querySelectorAll(".nav-links a");
