@@ -71,6 +71,8 @@
       "Monitor de sistema ligero para Linux desarrollado con C#, .NET y Avalonia UI. Métricas en tiempo real de CPU, temperatura, memoria RAM, disco y red con procesos agrupados por aplicación y empaquetado autónomo en .deb.",
     "andwhystudys.desc":
       "Plataforma interactiva para documentar, estudiar y consultar apuntes y conceptos de C# y .NET, con flujo secuencial de bloques de texto y código, ventanas de previsualización estilo Fluent/Windows, filtrado por temas y prioridades, y persistencia en la nube para Vercel.",
+    "bookonc.desc":
+      "Aplicación web interactiva (React + TypeScript + Vite) que funciona como una enciclopedia de C# en español. Organiza conceptos en 16 categorías con explicaciones, ejemplos de código y su salida esperada. Incluye buscador, modo oscuro, pantalla completa y un estilo tipo IDE.",
     "view": "Ver proyecto",
     "actual.eyebrow": "Proyecto actual",
     "actual.sub": "Planificación de recursos empresariales (ERP), control de inventario, facturación con IVA y catálogo comercial para materiales de construcción y ferretería.",
@@ -217,6 +219,8 @@
       "Lightweight Linux system monitor built with C#, .NET, and Avalonia UI. Real-time CPU, temperature, RAM, disk, and network stats with processes grouped by application and self-contained .deb packaging.",
     "andwhystudys.desc":
       "Interactive platform for documenting, studying, and referencing C# and .NET notes and concepts, with sequential text and code blocks, Fluent/Windows-style preview windows, filtering by topics and priorities, and cloud persistence on Vercel.",
+    "bookonc.desc":
+      "Interactive web application (React + TypeScript + Vite) that works as a C# encyclopedia in Spanish. It organizes concepts into 16 categories with explanations, code examples, and expected output. Includes search, dark mode, full screen, and an IDE-style design.",
     "view": "View project",
     "actual.eyebrow": "Current project",
     "actual.sub": "Comprehensive Enterprise Resource Planning (ERP), Inventory Control, Tax Invoicing, and Customer Storefront for Construction Materials and Hardware Supplies.",
