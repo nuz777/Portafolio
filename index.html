@@ -359,6 +359,64 @@
 
           <article class="project-card fade-in" style="transition-delay: 0.24s">
             <div class="card-thumb">
+              <img src="./public/img/MonitorPC.png" alt="Monitor PC" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <div class="card-tags">
+                <span class="tag" data-i18n="tag.personal">Proyecto personal</span>
+                <span class="tag steel" data-i18n="tag.public">Código público</span>
+              </div>
+              <h3 class="card-title">Monitor PC</h3>
+              <p class="card-desc" data-i18n="monitor.desc">
+                Monitor de sistema ligero para Linux desarrollado con C#, .NET y Avalonia UI. Métricas en tiempo real de CPU, temperatura, memoria RAM, disco y red con procesos agrupados por aplicación y empaquetado autónomo en .deb.
+              </p>
+              <div class="card-techs">
+                <span class="tech-badge">C#</span>
+                <span class="tech-badge">.NET</span>
+                <span class="tech-badge">Avalonia UI</span>
+                <span class="tech-badge">Linux</span>
+              </div>
+              <a href="https://github.com/nuz777/MonitorPC" target="_blank" class="card-link">
+                <span data-i18n="view">Ver proyecto</span>
+                <svg viewBox="0 0 24 24">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card fade-in" style="transition-delay: 0.32s">
+            <div class="card-thumb">
+              <img src="./public/img/AndWhyStudysCsharp.png" alt="AndWhyStudysCsharp" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <div class="card-tags">
+                <span class="tag" data-i18n="tag.personal">Proyecto personal</span>
+                <span class="tag steel" data-i18n="tag.public">Código público</span>
+              </div>
+              <h3 class="card-title">AndWhyStudysCsharp</h3>
+              <p class="card-desc" data-i18n="andwhystudys.desc">
+                Plataforma interactiva para documentar, estudiar y consultar apuntes y conceptos de C# y .NET, con flujo secuencial de bloques de texto y código, ventanas de previsualización estilo Fluent/Windows, filtrado por temas y prioridades, y persistencia en la nube para Vercel.
+              </p>
+              <div class="card-techs">
+                <span class="tech-badge">React</span>
+                <span class="tech-badge">TypeScript</span>
+                <span class="tech-badge">C# / .NET</span>
+                <span class="tech-badge">Vercel</span>
+              </div>
+              <a href="https://and-why-studys-csharp.vercel.app/" target="_blank" class="card-link">
+                <span data-i18n="view">Ver proyecto</span>
+                <svg viewBox="0 0 24 24">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card fade-in" style="transition-delay: 0.4s">
+            <div class="card-thumb">
               <img src="./public/img/stockpro.png" alt="Inventario SPA" loading="lazy" />
             </div>
             <div class="card-body">
@@ -386,7 +444,7 @@
             </div>
           </article>
 
-          <article class="project-card fade-in" style="transition-delay: 0.32s">
+          <article class="project-card fade-in" style="transition-delay: 0.48s">
             <div class="card-thumb">
               <img src="./public/img/websecurity.webp" alt="Web Security Scanner" loading="lazy" />
             </div>
@@ -415,7 +473,7 @@
             </div>
           </article>
 
-          <article class="project-card fade-in" style="transition-delay: 0.4s">
+          <article class="project-card fade-in" style="transition-delay: 0.56s">
             <div class="card-thumb">
               <img src="./public/img/medictaste.webp" alt="Medic-Taste" loading="lazy" />
             </div>
@@ -444,7 +502,7 @@
             </div>
           </article>
 
-          <article class="project-card fade-in" style="transition-delay: 0.48s">
+          <article class="project-card fade-in" style="transition-delay: 0.64s">
             <div class="card-thumb">
               <img src="./public/img/nuevoproyecto1.webp" alt="y2Nuz" loading="lazy" />
             </div>
@@ -473,7 +531,7 @@
             </div>
           </article>
 
-          <article class="project-card fade-in" style="transition-delay: 0.56s">
+          <article class="project-card fade-in" style="transition-delay: 0.72s">
             <div class="card-thumb">
               <img src="./public/img/thornhill.webp" alt="Thornhill" loading="lazy" />
             </div>
@@ -502,7 +560,7 @@
             </div>
           </article>
 
-          <article class="project-card fade-in" style="transition-delay: 0.64s">
+          <article class="project-card fade-in" style="transition-delay: 0.8s">
             <div class="card-thumb">
               <img src="./public/img/saunuz.webp" alt="SauNuz" loading="lazy" />
             </div>
@@ -828,23 +886,46 @@
       </div>
     </footer>
 
-    <!-- MODAL VISTA PREVIA DE IMAGEN -->
-    <div id="imageLightbox" class="lightbox-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Vista previa de imagen">
+    <!-- MODAL VISTA PREVIA INTERACTIVA -->
+    <div id="imageLightbox" class="lightbox-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Vista previa interactiva">
       <div class="lightbox-backdrop"></div>
       <div class="lightbox-content">
-        <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar vista previa">
+        <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Cerrar vista previa">
           <svg viewBox="0 0 24 24" aria-hidden="true">
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
           </svg>
         </button>
-        <figure class="lightbox-figure">
+
+        <!-- Vista del sitio interactivo (iframe) -->
+        <div id="liveView" class="preview-viewport is-live">
+          <div class="preview-loader" id="browserLoader">
+            <div class="loader-spinner"></div>
+          </div>
+          <iframe id="browserIframe" src="" title="Vista previa interactiva" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
+        </div>
+
+        <!-- Vista de la imagen / captura (para repos o sitios con bloqueo) -->
+        <figure id="imageView" class="preview-viewport is-image" style="display: none;">
           <img id="lightboxImg" src="" alt="" />
-          <figcaption class="lightbox-footer">
-            <span id="lightboxTitle" class="lightbox-title"></span>
-            <span class="lightbox-hint">Toca o haz clic fuera para cerrar</span>
-          </figcaption>
         </figure>
+
+        <!-- Footer bonito con título, aviso, controles de zoom y botón de abrir -->
+        <footer class="lightbox-footer">
+          <span id="lightboxTitle" class="lightbox-title"></span>
+          <span class="lightbox-hint">Toca o haz clic fuera para cerrar</span>
+          <div class="lightbox-actions">
+            <div class="preview-zoom-ctrl" id="previewZoomCtrl" title="Ajustar zoom de la vista previa">
+              <button type="button" class="zoom-btn" id="zoomOutBtn" aria-label="Reducir zoom">−</button>
+              <button type="button" class="zoom-value" id="zoomValue" title="Alternar zoom (80% / 100%)">80%</button>
+              <button type="button" class="zoom-btn" id="zoomInBtn" aria-label="Aumentar zoom">+</button>
+            </div>
+            <a id="browserExternal" href="#" target="_blank" rel="noopener noreferrer" class="preview-link-btn" title="Abrir sitio en pestaña nueva">
+              <span>Abrir sitio</span>
+              <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+        </footer>
       </div>
     </div>
 
