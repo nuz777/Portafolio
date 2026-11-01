@@ -37,8 +37,7 @@
     "about.profile": "Perfil profesional",
     "about.focus": "Enfoque",
     "about.focusVal": "Web Full Stack",
-"about.mainstack":
-      ".NET / C# / ASP.NET · React · Python",
+    "about.mainstack": "Stack principal",
     "about.avail": "Disponibilidad",
     "about.freelance": "Proyectos freelance",
     "about.email": "Email",
@@ -185,8 +184,7 @@
     "about.profile": "Professional profile",
     "about.focus": "Focus",
     "about.focusVal": "Web Full Stack",
-"about.mainstack":
-      ".NET / C# / ASP.NET · React · Python",
+    "about.mainstack": "Main stack",
     "about.avail": "Availability",
     "about.freelance": "Freelance projects",
     "about.email": "Email",
