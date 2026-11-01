@@ -24,7 +24,7 @@
     "about.eyebrow": "Sobre mí",
     "about.title": "Experiencia con foco en calidad",
     "about.p1":
-      "Soy desarrollador de software con experiencia construyendo aplicaciones web completas. Trabajo con una base sólida de .NET/C#, JavaScript y Python, y aplico buenas prácticas en cada etapa: diseño, desarrollo, pruebas y despliegue.",
+      "Soy desarrollador de software con experiencia construyendo aplicaciones web completas. Trabajo con una base sólida de .NET con C#, entre otros lenguajes backend (Node.js, Next.js), y aplico buenas prácticas en cada etapa: diseño, desarrollo, pruebas y despliegue.",
     "about.p2":
       "Me centro en entregar productos mantenibles y listos para producción, con pruebas automatizadas, contenedores Docker y despliegues en la nube que se pueden reproducir y escalar.",
     "about.l1": "Aplicaciones web full stack con .NET, React y Node.js",
