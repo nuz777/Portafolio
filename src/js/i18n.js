@@ -70,6 +70,8 @@
       "Plataforma interactiva para documentar, estudiar y consultar apuntes y conceptos de C# y .NET, con flujo secuencial de bloques de texto y código, ventanas de previsualización estilo Fluent/Windows, filtrado por temas y prioridades, y persistencia en la nube para Vercel.",
     "bookonc.desc":
       "Aplicación web interactiva (React + TypeScript + Vite) que funciona como una enciclopedia de C# en español. Organiza conceptos en 16 categorías con explicaciones, ejemplos de código y su salida esperada. Incluye buscador, modo oscuro, pantalla completa y un estilo tipo IDE.",
+    "climaspace.desc":
+      "Plataforma ERP y de comercio electrónico para materiales de construcción y suministros de ferretería. Construida con arquitectura limpia en .NET 10, Angular 19, PostgreSQL y Tailwind CSS. Aplicación web moderna de clima simulado con .NET 10, arquitectura limpia e interfaz glassmorphism.",
     "view": "Ver proyecto",
     "actual.eyebrow": "Proyecto actual",
     "actual.sub": "Planificación de recursos empresariales (ERP), control de inventario, facturación con IVA y catálogo comercial para materiales de construcción y ferretería.",
@@ -217,6 +219,8 @@
       "Interactive platform for documenting, studying, and referencing C# and .NET notes and concepts, with sequential text and code blocks, Fluent/Windows-style preview windows, filtering by topics and priorities, and cloud persistence on Vercel.",
     "bookonc.desc":
       "Interactive web application (React + TypeScript + Vite) that works as a C# encyclopedia in Spanish. It organizes concepts into 16 categories with explanations, code examples, and expected output. Includes search, dark mode, full screen, and an IDE-style design.",
+    "climaspace.desc":
+      "Enterprise ERP & E-Commerce platform for construction materials and hardware supplies. Built with Clean Architecture on .NET 10, Angular 19, PostgreSQL, and Tailwind CSS. Modern simulated weather web application with .NET 10, clean architecture, and glassmorphism UI.",
     "view": "View project",
     "actual.eyebrow": "Current project",
     "actual.sub": "Comprehensive Enterprise Resource Planning (ERP), Inventory Control, Tax Invoicing, and Customer Storefront for Construction Materials and Hardware Supplies.",
