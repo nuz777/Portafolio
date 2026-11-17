@@ -1597,6 +1597,103 @@ nav.nav-visible {
   text-align: center;
   box-shadow: 0 30px 70px rgba(15, 32, 57, 0.28);
 }
+.contact-rocket {
+  position: absolute;
+  top: 50%;
+  right: clamp(28px, 6vw, 64px);
+  width: clamp(56px, 7vw, 84px);
+  opacity: 0;
+  transform: translate(46px, -50%);
+  filter: drop-shadow(0 12px 20px rgba(9, 18, 32, 0.4));
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+.contact-rocket-float {
+  display: block;
+}
+.contact-rocket svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  transform: rotate(-60deg);
+}
+.contact-card.visible .contact-rocket {
+  animation: rocketArrive 0.95s cubic-bezier(0.34, 1.35, 0.5, 1) forwards;
+}
+.contact-card.visible .contact-rocket-float {
+  animation: rocketFloat 3.4s ease-in-out 0.95s infinite;
+}
+.contact-rocket .flame {
+  transform-box: fill-box;
+  transform-origin: 50% 0%;
+  animation: flameFlicker 0.3s ease-in-out infinite alternate;
+}
+.contact-rocket .spark {
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+  animation: sparkRise 1.7s ease-out infinite;
+}
+.contact-rocket .spark:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.contact-rocket .spark:nth-child(3) {
+  animation-delay: 0.85s;
+}
+.contact-rocket .spark:nth-child(4) {
+  animation-delay: 1.2s;
+}
+@keyframes rocketArrive {
+  0% {
+    opacity: 0;
+    transform: translate(50px, -50%) scale(0.85);
+  }
+  60% {
+    opacity: 1;
+    transform: translate(-9px, -50%) scale(1.04);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, -50%) scale(1);
+  }
+}
+@keyframes rocketFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes flameFlicker {
+  0% {
+    transform: scaleY(0.82) scaleX(0.9);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scaleY(1.16) scaleX(1.06);
+    opacity: 1;
+  }
+}
+@keyframes sparkRise {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.5);
+  }
+  25% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(34px) scale(1.1);
+  }
+}
+@media (max-width: 900px) {
+  .contact-rocket {
+    display: none;
+  }
+}
 [data-theme="dark"] .contact-card {
   background: var(--surface-2);
   border: 1px solid var(--border);
@@ -2437,6 +2534,10 @@ body.modal-open {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+  .contact-rocket {
+    opacity: 1 !important;
+    transform: translate(0, -50%) !important;
   }
   html {
     scroll-behavior: auto;
