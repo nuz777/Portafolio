@@ -401,6 +401,10 @@ nav.nav-visible {
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+.btn svg.icon-fill {
+  fill: currentColor;
+  stroke: none;
+}
 
 .nav-cta {
   padding: 10px 18px;
@@ -1355,6 +1359,16 @@ nav.nav-visible {
 }
 [data-theme="dark"] .tag.steel {
   color: var(--steel);
+}
+.tag-brand {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 10px;
+}
+.tag-brand img {
+  height: 14px;
+  width: auto;
+  display: block;
 }
 .card-title {
   font-family: var(--font-display);
