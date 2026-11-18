@@ -27,7 +27,13 @@
       rel="stylesheet"
     />
     <link rel="icon" type="image/svg+xml" href="./public/favicon.svg" />
-    <link rel="stylesheet" href="./src/styles/globals.css?v=6" />
+    <link rel="stylesheet" href="./src/styles/globals.css?v=7" />
+    <link rel="stylesheet" href="./src/styles/stockpro.css?v=1" />
+    <script>
+      try {
+        document.documentElement.setAttribute("data-theme", localStorage.getItem("theme") === "dark" ? "dark" : "light");
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <div class="cursor-dot" aria-hidden="true"></div>
@@ -206,7 +212,7 @@
           </div>
           <div class="stat fade-in" style="transition-delay: 0.24s">
             <strong data-count="22" data-suffix="+">22+</strong>
-            <span data-i18n="stats.s4"> Tecnologías Dominadas </span>
+            <span data-i18n="stats.s4">Tecnologías dominadas</span>
           </div>
         </div>
       </div>
@@ -274,18 +280,59 @@
           </p>
         </div>
 
+        <div class="project-filters fade-in" role="group" data-i18n-attr="aria-label:filter.aria" aria-label="Filtrar proyectos">
+          <button type="button" class="pf-btn active" data-filter="all" aria-pressed="true"><span data-i18n="filter.all">Todos</span><em></em></button>
+          <button type="button" class="pf-btn" data-filter="js" aria-pressed="false"><span>JavaScript / TypeScript</span><em></em></button>
+          <button type="button" class="pf-btn" data-filter="dotnet" aria-pressed="false"><span>C# / .NET</span><em></em></button>
+          <button type="button" class="pf-btn" data-filter="python" aria-pressed="false"><span>Python</span><em></em></button>
+        </div>
+
         <div class="projects-grid">
-          <article class="project-card fade-in">
+          <article class="project-card fade-in" data-cats="js">
+            <div class="card-thumb">
+              <img src="./public/img/stockpro.png" alt="StockPro: panel de inventario" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <div class="card-tags">
+                <span class="tag tag-brand"><img src="./public/img/iconoDeRiwi.png" alt="Riwi" /></span>
+                <span class="tag tag-new" data-i18n="tag.new">Nuevo</span>
+                <span class="tag">SPA</span>
+                <span class="tag steel" data-i18n="tag.public">Código público</span>
+              </div>
+              <h3 class="card-title" data-i18n="p6.title">StockPro · Inventario</h3>
+              <p class="card-desc" data-i18n="p6.desc">
+                Gestión de inventario en JavaScript puro, 100 % en el navegador: autenticación local con SHA-256, importación desde Excel/CSV con vista previa, operaciones masivas, perfil de usuario, historial y modo claro/oscuro.
+              </p>
+              <div class="card-techs">
+                <span class="tech-badge">JavaScript</span>
+                <span class="tech-badge">Vite</span>
+                <span class="tech-badge">LocalStorage</span>
+                <span class="tech-badge">XLSX / CSV</span>
+                <span class="tech-badge">SVG</span>
+              </div>
+              <div class="card-links">
+                <a href="https://inventario-project-chi.vercel.app/" target="_blank" rel="noopener noreferrer" class="card-link">
+                  <span data-i18n="view">Ver proyecto</span>
+                  <svg viewBox="0 0 24 24">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </a>
+                <a href="#stockpro" class="card-link-alt" data-i18n="view.demos">Ver demos</a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card fade-in" data-cats="js python">
             <div class="card-thumb">
               <img src="./public/img/racconsurvay.png" alt="Raccoon Survey" loading="lazy" />
             </div>
             <div class="card-body">
               <div class="card-tags">
-                <span class="tag">Project Final Combarranquilla</span>
+                <span class="tag" data-i18n="tag.combarranquilla">Proyecto final Combarranquilla</span>
                 <span class="tag steel" data-i18n="tag.public">Código público</span>
               </div>
               <h3 class="card-title">Raccoon Survey</h3>
-              <p class="card-desc">
+              <p class="card-desc" data-i18n="raccoon.desc">
                 Encuesta interactiva con integración de API y análisis de datos.
               </p>
               <div class="card-techs">
@@ -294,7 +341,7 @@
                 <span class="tech-badge">JavaScript</span>
                 <span class="tech-badge">MySQL</span>
               </div>
-              <a href="https://github.com/Javi-CD/raccoon-survey" target="_blank" class="card-link">
+              <a href="https://github.com/Javi-CD/raccoon-survey" target="_blank" rel="noopener noreferrer" class="card-link">
                 <span data-i18n="view">Ver proyecto</span>
                 <svg viewBox="0 0 24 24">
                   <line x1="5" y1="12" x2="19" y2="12" />
@@ -303,8 +350,7 @@
               </a>
             </div>
           </article>
-
-          <article class="project-card fade-in" style="transition-delay: 0.08s">
+          <article class="project-card fade-in" data-cats="js">
             <div class="card-thumb">
               <img src="./public/img/Nekoreadme.png" alt="Neko Readme" loading="lazy" />
             </div>
@@ -314,13 +360,13 @@
                 <span class="tag steel" data-i18n="tag.public">Código público</span>
               </div>
               <h3 class="card-title">Neko Readme</h3>
-              <p class="card-desc">
+              <p class="card-desc" data-i18n="neko.desc">
                 Neko-readme es un generador de documentación rápido y completamente del lado del cliente que convierte cualquier código fuente en un archivo README profesional. Se ejecuta al 100% en el navegador: tu código nunca sale de tu máquina. </p>
               <div class="card-techs">
                 <span class="tech-badge">TypeScript</span>
                 <span class="tech-badge">React</span>
               </div>
-              <a href="https://neko-readme.vercel.app/" target="_blank" class="card-link">
+              <a href="https://neko-readme.vercel.app/" target="_blank" rel="noopener noreferrer" class="card-link">
                 <span data-i18n="view">Ver proyecto</span>
                 <svg viewBox="0 0 24 24">
                   <line x1="5" y1="12" x2="19" y2="12" />
@@ -329,8 +375,7 @@
               </a>
             </div>
           </article>
-
-          <article class="project-card fade-in" style="transition-delay: 0.16s">
+          <article class="project-card fade-in" data-cats="js">
             <div class="card-thumb">
               <img src="./public/img/NuzthemesNew.png" alt="NuzThemes" loading="lazy" />
             </div>
@@ -340,14 +385,14 @@
                 <span class="tag steel" data-i18n="tag.public">Código público</span>
               </div>
               <h3 class="card-title">NuzThemes</h3>
-              <p class="card-desc">
-               Web app reproducena de música/slowed+reverb (phonk, snicore, clásicos, temas de animación), estilo streaming, hecha con Angular 22 SSR (Server-Side Rendering), hidratación, zoneless y Tailwind CSS 4
+              <p class="card-desc" data-i18n="nuzthemes.desc">
+                Reproductor web de música slowed + reverb (phonk, sincore, clásicos y temas de anime) estilo streaming, hecho con Angular 22 SSR, hidratación, zoneless y Tailwind CSS 4.
               </p>
               <div class="card-techs">
                 <span class="tech-badge">TypeScript</span>
                 <span class="tech-badge">Angular</span>
               </div>
-              <a href="https://nuz-themes.vercel.app/" target="_blank" class="card-link">
+              <a href="https://nuz-themes.vercel.app/" target="_blank" rel="noopener noreferrer" class="card-link">
                 <span data-i18n="view">Ver proyecto</span>
                 <svg viewBox="0 0 24 24">
                   <line x1="5" y1="12" x2="19" y2="12" />
@@ -356,8 +401,7 @@
               </a>
             </div>
           </article>
-
-          <article class="project-card fade-in" style="transition-delay: 0.24s">
+          <article class="project-card fade-in" data-cats="dotnet">
             <div class="card-thumb">
               <img src="./public/img/MonitorPC.png" alt="Monitor PC" loading="lazy" />
             </div>
@@ -377,7 +421,7 @@
                 <span class="tech-badge">Avalonia UI</span>
                 <span class="tech-badge">Linux</span>
               </div>
-              <a href="https://github.com/nuz777/MonitorPC/releases" target="_blank" class="card-link">
+              <a href="https://github.com/nuz777/MonitorPC/releases" target="_blank" rel="noopener noreferrer" class="card-link">
                 <span data-i18n="view">Ver proyecto</span>
                 <svg viewBox="0 0 24 24">
                   <line x1="5" y1="12" x2="19" y2="12" />
@@ -386,8 +430,7 @@
               </a>
             </div>
           </article>
-
-          <article class="project-card fade-in" style="transition-delay: 0.32s">
+          <article class="project-card fade-in" data-cats="js dotnet">
             <div class="card-thumb">
               <img src="./public/img/AndWhyStudysCsharp.png" alt="AndWhyStudysCsharp" loading="lazy" />
             </div>
@@ -406,7 +449,7 @@
                 <span class="tech-badge">C# / .NET</span>
                 <span class="tech-badge">Vercel</span>
               </div>
-              <a href="https://and-why-studys-csharp.vercel.app/" target="_blank" class="card-link">
+              <a href="https://and-why-studys-csharp.vercel.app/" target="_blank" rel="noopener noreferrer" class="card-link">
                 <span data-i18n="view">Ver proyecto</span>
                 <svg viewBox="0 0 24 24">
                   <line x1="5" y1="12" x2="19" y2="12" />
@@ -415,8 +458,7 @@
               </a>
             </div>
           </article>
-
-          <article class="project-card fade-in" style="transition-delay: 0.36s">
+          <article class="project-card fade-in" data-cats="js">
             <div class="card-thumb">
               <img src="./public/img/BookonC.png" alt="BookonC" loading="lazy" />
             </div>
@@ -434,7 +476,7 @@
                 <span class="tech-badge">TypeScript</span>
                 <span class="tech-badge">Documentacion</span>
               </div>
-              <a href="https://bookon-c.vercel.app/" target="_blank" class="card-link">
+              <a href="https://bookon-c.vercel.app/" target="_blank" rel="noopener noreferrer" class="card-link">
                 <span data-i18n="view">Ver proyecto</span>
                 <svg viewBox="0 0 24 24">
                   <line x1="5" y1="12" x2="19" y2="12" />
@@ -443,38 +485,7 @@
               </a>
             </div>
           </article>
-
-          <article class="project-card fade-in" style="transition-delay: 0.4s">
-            <div class="card-thumb">
-              <img src="./public/img/stockpro.png" alt="Inventario SPA" loading="lazy" />
-            </div>
-            <div class="card-body">
-              <div class="card-tags">
-                <span class="tag tag-brand"><img src="./public/img/iconoDeRiwi.png" alt="Riwi" /></span>
-                <span class="tag">SPA</span>
-                <span class="tag steel" data-i18n="tag.public">Código público</span>
-              </div>
-              <h3 class="card-title" data-i18n="p6.title">Inventario SPA</h3>
-              <p class="card-desc" data-i18n="p6.desc">
-                Gestión de inventario en JavaScript puro: manejo avanzado del
-                DOM, CRUD completo y arquitectura sin frameworks.
-              </p>
-              <div class="card-techs">
-                <span class="tech-badge">JavaScript</span>
-                <span class="tech-badge">DOM API</span>
-                <span class="tech-badge">LocalStorage</span>
-              </div>
-              <a href="https://inventario-project-chi.vercel.app/" target="_blank" class="card-link">
-                <span data-i18n="view">Ver proyecto</span>
-                <svg viewBox="0 0 24 24">
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="12 5 19 12 12 19" />
-                </svg>
-              </a>
-            </div>
-          </article>
-
-          <article class="project-card fade-in" style="transition-delay: 0.48s">
+          <article class="project-card fade-in" data-cats="python">
             <div class="card-thumb">
               <img src="./public/img/websecurity.webp" alt="Web Security Scanner" loading="lazy" />
             </div>
@@ -493,7 +504,7 @@
                 <span class="tech-badge">Flask</span>
                 <span class="tech-badge">Pipeline</span>
               </div>
-              <a href="https://themperz.vercel.app" target="_blank" class="card-link">
+              <a href="https://themperz.vercel.app" target="_blank" rel="noopener noreferrer" class="card-link">
                 <span data-i18n="view">Ver proyecto</span>
                 <svg viewBox="0 0 24 24">
                   <line x1="5" y1="12" x2="19" y2="12" />
@@ -502,8 +513,7 @@
               </a>
             </div>
           </article>
-
-          <article class="project-card fade-in" style="transition-delay: 0.56s">
+          <article class="project-card fade-in" data-cats="js python">
             <div class="card-thumb">
               <img src="./public/img/medictaste.webp" alt="Medic-Taste" loading="lazy" />
             </div>
@@ -522,7 +532,7 @@
                 <span class="tech-badge">MySQL</span>
                 <span class="tech-badge">Python</span>
               </div>
-              <a href="https://medic-taste-cinw.vercel.app/#hero" target="_blank" class="card-link">
+              <a href="https://medic-taste-cinw.vercel.app/#hero" target="_blank" rel="noopener noreferrer" class="card-link">
                 <span data-i18n="view">Ver proyecto</span>
                 <svg viewBox="0 0 24 24">
                   <line x1="5" y1="12" x2="19" y2="12" />
@@ -531,8 +541,7 @@
               </a>
             </div>
           </article>
-
-          <article class="project-card fade-in" style="transition-delay: 0.64s">
+          <article class="project-card fade-in" data-cats="dotnet">
             <div class="card-thumb">
               <img src="./public/img/ClimaSpace.png" alt="ClimaSpace" loading="lazy" />
             </div>
@@ -550,7 +559,7 @@
                 <span class="tech-badge">PostgreSQL</span>
                 <span class="tech-badge">Tailwind CSS</span>
               </div>
-              <a href="https://climaspace.onrender.com/viento" target="_blank" class="card-link">
+              <a href="https://climaspace.onrender.com/viento" target="_blank" rel="noopener noreferrer" class="card-link">
                 <span data-i18n="view">Ver proyecto</span>
                 <svg viewBox="0 0 24 24">
                   <line x1="5" y1="12" x2="19" y2="12" />
@@ -559,8 +568,7 @@
               </a>
             </div>
           </article>
-
-          <article class="project-card fade-in" style="transition-delay: 0.72s">
+          <article class="project-card fade-in" data-cats="js">
             <div class="card-thumb">
               <img src="./public/img/thornhill.webp" alt="Thornhill" loading="lazy" />
             </div>
@@ -580,7 +588,7 @@
                 <span class="tech-badge">CSS</span>
                 <span class="tech-badge">JavaScript</span>
               </div>
-              <a href="https://nuz777.github.io/Thornhill-landing-page/" target="_blank" class="card-link">
+              <a href="https://nuz777.github.io/Thornhill-landing-page/" target="_blank" rel="noopener noreferrer" class="card-link">
                 <span data-i18n="view">Ver proyecto</span>
                 <svg viewBox="0 0 24 24">
                   <line x1="5" y1="12" x2="19" y2="12" />
@@ -589,7 +597,98 @@
               </a>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
 
+    <section id="stockpro" class="sp-section">
+      <div class="container">
+        <div class="section-head fade-in">
+          <p class="eyebrow"><span data-i18n="sp.eyebrow">Proyecto destacado</span><span class="sp-new" data-i18n="tag.new">Nuevo</span></p>
+          <h2 class="section-title" data-i18n="sp.title">StockPro: inventario completo, 100 % en el navegador</h2>
+          <p class="section-sub" data-i18n="sp.sub">
+            SPA en JavaScript puro, sin frameworks ni dependencias de ejecución. Cada demostración es la aplicación real en acción.
+          </p>
+        </div>
+
+        <div class="sp-showcase fade-in">
+          <div class="sp-tabs" role="tablist" data-i18n-attr="aria-label:sp.tabsAria" aria-label="Funciones de StockPro">
+            <button type="button" class="sp-tab active" role="tab" data-demo="panel" aria-selected="true" aria-controls="spDemo">
+              <span class="sp-tab-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg></span>
+              <span><strong data-i18n="sp.t1">Panel general</strong><small data-i18n="sp.d1">Indicadores, valor por categoría y alertas de reposición.</small></span>
+              <span class="sp-tab-progress" aria-hidden="true"><i></i></span>
+            </button>
+            <button type="button" class="sp-tab" role="tab" data-demo="crear" aria-selected="false" aria-controls="spDemo">
+              <span class="sp-tab-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><line x1="12" y1="9" x2="12" y2="15"/><line x1="9" y1="12" x2="15" y2="12"/></svg></span>
+              <span><strong data-i18n="sp.t2">Crear productos</strong><small data-i18n="sp.d2">Formulario validado con SKU automático y margen en vivo.</small></span>
+              <span class="sp-tab-progress" aria-hidden="true"><i></i></span>
+            </button>
+            <button type="button" class="sp-tab" role="tab" data-demo="masivo" aria-selected="false" aria-controls="spDemo">
+              <span class="sp-tab-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span>
+              <span><strong data-i18n="sp.t3">Operaciones masivas</strong><small data-i18n="sp.d3">Stock, precios y categorías por lotes.</small></span>
+              <span class="sp-tab-progress" aria-hidden="true"><i></i></span>
+            </button>
+            <button type="button" class="sp-tab" role="tab" data-demo="importar" aria-selected="false" aria-controls="spDemo">
+              <span class="sp-tab-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><polyline points="9 15 12 12 15 15"/><line x1="12" y1="12" x2="12" y2="18"/></svg></span>
+              <span><strong data-i18n="sp.t4">Importar desde Excel</strong><small data-i18n="sp.d4">.xlsx y .csv con detección de columnas y vista previa.</small></span>
+              <span class="sp-tab-progress" aria-hidden="true"><i></i></span>
+            </button>
+            <button type="button" class="sp-tab" role="tab" data-demo="buscar" aria-selected="false" aria-controls="spDemo">
+              <span class="sp-tab-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+              <span><strong data-i18n="sp.t5">Búsqueda y filtros</strong><small data-i18n="sp.d5">Búsqueda sin tildes, filtros y orden por columna.</small></span>
+              <span class="sp-tab-progress" aria-hidden="true"><i></i></span>
+            </button>
+            <button type="button" class="sp-tab" role="tab" data-demo="perfil" aria-selected="false" aria-controls="spDemo">
+              <span class="sp-tab-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+              <span><strong data-i18n="sp.t6">Perfil y seguridad</strong><small data-i18n="sp.d6">Cuentas locales, foto, preferencias y copias de seguridad.</small></span>
+              <span class="sp-tab-progress" aria-hidden="true"><i></i></span>
+            </button>
+            <button type="button" class="sp-tab" role="tab" data-demo="tema" aria-selected="false" aria-controls="spDemo">
+              <span class="sp-tab-icon"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg></span>
+              <span><strong data-i18n="sp.t7">Modo claro y oscuro</strong><small data-i18n="sp.d7">Dos temas profesionales que recuerdan tu elección.</small></span>
+              <span class="sp-tab-progress" aria-hidden="true"><i></i></span>
+            </button>
+          </div>
+
+          <div class="sp-stage">
+            <div class="sp-window">
+              <div class="sp-demo" id="spDemo" role="tabpanel">
+                <div class="sp-placeholder"><span class="sp-spinner" aria-hidden="true"></span></div>
+              </div>
+            </div>
+            <div class="sp-stage-foot">
+              <span class="sp-hint">
+                <svg viewBox="0 0 24 24"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/></svg>
+                <span data-i18n="sp.hint">Pasa el cursor sobre la demo para pausarla</span>
+              </span>
+              <button type="button" class="sp-play" id="spPlay">
+                <svg class="i-pause" viewBox="0 0 24 24"><line x1="9" y1="5" x2="9" y2="19"/><line x1="15" y1="5" x2="15" y2="19"/></svg>
+                <svg class="i-play" viewBox="0 0 24 24"><polygon points="7 4 19 12 7 20 7 4"/></svg>
+                <span data-label>Pausar</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="sp-bottom fade-in">
+          <div class="sp-highlights">
+            <div><strong>0</strong><span data-i18n="sp.h1">dependencias de ejecución</span></div>
+            <div><strong>.xlsx</strong><span data-i18n="sp.h2">lector y escritor propios, sin librerías</span></div>
+            <div><strong>SHA-256</strong><span data-i18n="sp.h3">contraseñas con sal, cuentas locales</span></div>
+            <div><strong>5</strong><span data-i18n="sp.h4">acciones masivas sobre el inventario</span></div>
+          </div>
+          <div class="sp-actions">
+            <div class="card-techs">
+              <span class="tech-badge">JavaScript</span>
+              <span class="tech-badge">Vite</span>
+              <span class="tech-badge">LocalStorage</span>
+              <span class="tech-badge">SVG / SMIL</span>
+            </div>
+            <a href="https://inventario-project-chi.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <span data-i18n="sp.cta">Probar en vivo</span>
+              <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -608,7 +707,7 @@
       <div class="container actual-hero-inner">
         <div class="actual-hero-content">
           <div class="actual-hero-top fade-in" style="--delay: 0.06s">
-            <p class="eyebrow" data-i18n="actual.eyebrow">Proyecto actual</p>
+            <p class="eyebrow" data-i18n="actual.eyebrow">Proyecto empresarial</p>
             <div class="status-pill">
               <span class="pulse-dot" aria-hidden="true"></span>
               <span data-i18n="actual.status"> Finalizado </span>
@@ -662,7 +761,7 @@
             <div class="actual-actions">
               <a
                 href="https://firmeza-client.onrender.com"
-                target="_blank"
+                target="_blank" rel="noopener noreferrer"
                 class="btn btn-primary actual-cta"
                 data-i18n-attr="aria-label:actual.frameAria"
                 aria-label="Abrir FirmezaERP"
@@ -839,13 +938,13 @@
                 <rect x="2" y="3" width="20" height="18" rx="2" />
               </svg>
             </a>
-            <a href="https://github.com/nuz777" target="_blank" class="btn btn-ghost">
+            <a href="https://github.com/nuz777" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
               <span data-i18n="contact.gh">Ver GitHub</span>
               <svg class="icon-fill" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.1-1.49-1.1-1.49-.9-.63.07-.62.07-.62 1 .07 1.52 1.05 1.52 1.05.89 1.56 2.33 1.11 2.9.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.05a9.3 9.3 0 0 1 2.5-.34c.85 0 1.7.11 2.5.34 1.91-1.32 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.81 0 .27.18.59.69.49C19.13 20.63 22 16.79 22 12.26 22 6.58 17.52 2 12 2z" />
               </svg>
             </a>
-            <a href="https://www.linkedin.com/in/ivandev23" target="_blank" class="btn btn-ghost">
+            <a href="https://www.linkedin.com/in/ivandev23" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
               <span data-i18n="contact.li">Ver LinkedIn</span>
               <svg class="icon-fill" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z" />
@@ -869,19 +968,14 @@
               el usuario y entrega real.
             </p>
             <div class="social-links">
-              <a href="https://github.com/nuz777" class="social-link" aria-label="GitHub" target="_blank">
+              <a href="https://github.com/nuz777" class="social-link" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
                 <svg viewBox="0 0 24 24">
                   <path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.1-1.49-1.1-1.49-.9-.63.07-.62.07-.62 1 .07 1.52 1.05 1.52 1.05.89 1.56 2.33 1.11 2.9.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.05a9.3 9.3 0 0 1 2.5-.34c.85 0 1.7.11 2.5.34 1.91-1.32 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.81 0 .27.18.59.69.49C19.13 20.63 22 16.79 22 12.26 22 6.58 17.52 2 12 2z" />
                 </svg>
               </a>
-              <a href="https://www.linkedin.com/in/ivandev23" class="social-link" aria-label="LinkedIn" target="_blank">
+              <a href="https://www.linkedin.com/in/ivandev23" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                 <svg viewBox="0 0 24 24">
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z" />
-                </svg>
-              </a>
-              <a href="#" class="social-link" aria-label="X (Twitter)">
-                <svg viewBox="0 0 24 24">
-                  <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932zM17.61 20.644h2.039L6.486 3.24H4.298z" />
                 </svg>
               </a>
               <a href="mailto:ivandavidmejiamendez@gmail.com" class="social-link" aria-label="Email">
@@ -916,7 +1010,7 @@
             <h4 data-i18n="footer.contact">Contacto</h4>
             <ul>
               <li><a href="mailto:ivandavidmejiamendez@gmail.com">ivandavidmejiamendez@gmail.com</a></li>
-              <li><a href="https://github.com/nuz777" target="_blank">GitHub - Nuz777</a></li>
+              <li><a href="https://github.com/nuz777" target="_blank" rel="noopener noreferrer">GitHub - Nuz777</a></li>
               <li><a href="#contacto" data-i18n="footer.avail">Disponibilidad</a></li>
             </ul>
           </div>
@@ -959,7 +1053,7 @@
         <!-- Footer bonito con título, aviso, controles de zoom y botón de abrir -->
         <footer class="lightbox-footer">
           <span id="lightboxTitle" class="lightbox-title"></span>
-          <span class="lightbox-hint">Toca o haz clic fuera para cerrar</span>
+          <span class="lightbox-hint" data-i18n="ui.lbHint">Toca o haz clic fuera para cerrar</span>
           <div class="lightbox-actions">
             <div class="preview-zoom-ctrl" id="previewZoomCtrl" title="Ajustar zoom de la vista previa">
               <button type="button" class="zoom-btn" id="zoomOutBtn" aria-label="Reducir zoom">−</button>
@@ -967,7 +1061,7 @@
               <button type="button" class="zoom-btn" id="zoomInBtn" aria-label="Aumentar zoom">+</button>
             </div>
             <a id="browserExternal" href="#" target="_blank" rel="noopener noreferrer" class="preview-link-btn" title="Abrir sitio en pestaña nueva">
-              <span>Abrir sitio</span>
+              <span data-i18n="ui.openSite">Abrir sitio</span>
               <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             </a>
           </div>
@@ -977,5 +1071,6 @@
 
     <script src="./src/js/i18n.js"></script>
     <script src="./src/js/main.js"></script>
+    <script src="./src/js/stockpro.js?v=1"></script>
   </body>
 </html>
